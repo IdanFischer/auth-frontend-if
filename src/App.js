@@ -1,14 +1,17 @@
+import { useState, createContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Welcome from './scenes/Welcome';
 import Login from './scenes/Login';
 import Signup from './scenes/Signup';
 import Content from './scenes/Content';
 import './App.css';
-import { useState } from 'react';
+
+export const AuthContext = createContext(null)
 
 function App() {
   const [user, setUser] = useState()
   return (
+    <AuthContext.Provider value={{ user, setUser }}>
     <div className="App">
       <header className="App-header">
         <Routes>
@@ -23,6 +26,7 @@ function App() {
         </Routes>
       </header>
     </div>
+    </AuthContext.Provider>
   );
 }
 
