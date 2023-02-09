@@ -5,6 +5,7 @@ import Login from './scenes/Login';
 import Signup from './scenes/Signup';
 import Content from './scenes/Content';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 export const AuthContext = createContext(null)
 

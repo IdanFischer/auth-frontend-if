@@ -1,6 +1,8 @@
 import { useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../App"
+import Form from "react-bootstrap/Form"
+import Button from "react-bootstrap/Button"
 
 export default function SignupForm() {
   const [email, setEmail] = useState('')
@@ -10,7 +12,9 @@ export default function SignupForm() {
   const handleSubmit = (e) => {
     e.preventDefault()
     // make a post request to the API with the form data
-    fetch('http://127.0.0.1:5002/signup', {
+    // 'https://auth-api-if.web.app/signup'
+    // 127.0.0.1:5002/signup
+    fetch('127.0.0.1:5002/signup', {
       method:'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -31,15 +35,30 @@ export default function SignupForm() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email"> Email &nbsp;
-          <input type="email" name="email" 
-          value={email} onChange={e => setEmail(e.target.value)} />  
-        </label> <br />
-        <label htmlFor="password"> Password &nbsp;
-          <input type="password" name="password" 
-          value={password} onChange={e => setPassword(e.target.value)} />  
-        </label>  <br />
-        <input type="submit" value="Sign up" />
+        <Form.Group>
+          <Form.Label>Email</Form.Label>
+          <Form.Control 
+            name="email" 
+            type="email" 
+            placeholder="Enter Email" 
+            value={email}
+            onChange={e => setEmail(e.target.value)}/>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Password</Form.Label>
+          <Form.Control 
+            name="password" 
+            type="password" 
+            placeholder="Enter Password" 
+            value={password}
+            onChange={e => setPassword(e.target.value)}/>
+        </Form.Group>
+
+        <Button 
+          variant="primary" 
+          type="sumbit">Sumbit
+        </Button>
       </form>
     </>
   )
