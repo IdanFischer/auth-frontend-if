@@ -1,10 +1,10 @@
 import { useState, useContext } from "react"
-import { useNavigate, Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../App"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 
-export default function SignupForm() {
+export default function LoginForm() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const { setUser } = useContext(AuthContext)
@@ -36,7 +36,7 @@ export default function SignupForm() {
     <>
       <form onSubmit={ handleSubmit }>
         <Form.Group>
-          <p className="text-light">Please sign up to contiune to the Beer festival </p>
+          <p className="text-light">Please Login to contiune to the Beer festival </p>
           <Form.Label>Email</Form.Label>
           <Form.Control 
             name="email" 
