@@ -34,14 +34,16 @@ export default function SignupForm() {
   }
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={ handleSubmit }>
         <Form.Group>
+          <p className="text-light">Please sign up to contiune to the Beer festival </p>
           <Form.Label>Email</Form.Label>
           <Form.Control 
             name="email" 
             type="email" 
             placeholder="Enter Email" 
             value={email}
+            className="p-2 hover-effect"
             onChange={e => setEmail(e.target.value)}/>
         </Form.Group>
 
@@ -52,12 +54,16 @@ export default function SignupForm() {
             type="password" 
             placeholder="Enter Password" 
             value={password}
+            className="p-2 hover-effect"
             onChange={e => setPassword(e.target.value)}/>
         </Form.Group>
 
         <Button 
-          variant="primary" 
-          type="sumbit">Sumbit
+          variant="outline-light" 
+          type="sumbit"
+          className="mt-3"
+          size="lg"
+          >Sumbit
         </Button>
       </form>
     </>

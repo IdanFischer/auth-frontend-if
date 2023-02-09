@@ -4,8 +4,8 @@ import Welcome from './scenes/Welcome';
 import Login from './scenes/Login';
 import Signup from './scenes/Signup';
 import Content from './scenes/Content';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css';
 
 export const AuthContext = createContext(null)
 
