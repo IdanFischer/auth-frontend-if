@@ -16,14 +16,14 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Routes>
-          <Route path="/secret" element={(user) 
-            ? <Content /> 
+          <Route path="/secret" element={(user)
+            ? <Content />  
             : <Welcome />
             } />
+            {console.log(user)}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route exact path="/"element={<Welcome />} />
-          <Route path="*" element={<Welcome />} />
         </Routes>
       </header>
     </div>

@@ -5,16 +5,19 @@ import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 
 export default function LoginForm() {
+  // sets the email of the person signing in
   const [email, setEmail] = useState('')
+  // sets the password of the person signing in
   const [password, setPassword] = useState('')
+  // brings in setUser from App.js so that setUser can in inherit the email
   const { setUser } = useContext(AuthContext)
-  const navigate= useNavigate()
+  const navigate = useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault()
     // make a post request to the API with the form data
-    // 'https://auth-api-if.web.app/signup'
-    // 127.0.0.1:5002/signup
-    fetch('127.0.0.1:5002/signup', {
+    // 'https://auth-api-if.web.app/login'
+    // 1http://localhost:5002/login
+    fetch('http://127.0.0.1:5002/login', {
       method:'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -27,6 +30,7 @@ export default function LoginForm() {
     .then(res => res.json())
     .then(res => {
       setUser(res.user)
+      localStorage.setItem("token", res.token)
       // 2. redirect to the content page
       navigate('/secret')
     })
@@ -63,7 +67,7 @@ export default function LoginForm() {
           type="sumbit"
           className="mt-3"
           size="lg"
-          >Sumbit
+          >Login
         </Button>
       </form>
     </>
