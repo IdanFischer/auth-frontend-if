@@ -3,7 +3,11 @@ import { useEffect, useState } from "react"
 export default function Content() {
   const [secrets, setSecrets] = useState()
   useEffect(() => {
-    fetch('http://localhost:5002/secrets')
+    fetch('http://localhost:5002/secrets', {
+      headers: {
+        Authorization: localStorage.getItem("token")
+      }
+    })
       .then(res => res.json())
       .then(setSecrets)
       .catch(alert)
