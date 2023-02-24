@@ -14,6 +14,10 @@ export default function LoginForm() {
   const navigate = useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault()
+    if(email.length < 6 || password.length < 1) {
+      alert("please enter a valid email and password")
+      return
+    }
     // make a post request to the API with the form data
     // 'https://auth-api-if.web.app/login'
     // 1http://localhost:5002/login
@@ -29,7 +33,7 @@ export default function LoginForm() {
     // then...
     .then(res => res.json())
     .then(res => {
-      setUser(res.user)
+      setUser(res)
       localStorage.setItem("token", res.token)
       // 2. redirect to the content page
       navigate('/secret')

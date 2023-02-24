@@ -29,7 +29,7 @@ export default function SignupForm() {
       // then...
       .then(res => res.json())
       .then(res => {
-        setUser(res.user)
+        setUser(res)
         localStorage.setItem("token", res.token)
         // 2. redirect to the content page
       })
